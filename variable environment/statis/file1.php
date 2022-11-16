@@ -1,4 +1,5 @@
 <?php
+// statis adalah mempertahankan nilai aslinya
 
 $a = 5;
 $b = 3;
