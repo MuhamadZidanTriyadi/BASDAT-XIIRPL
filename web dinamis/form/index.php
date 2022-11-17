@@ -10,7 +10,7 @@
             </div>
             <div>
                 <label>Email</label><br>
-                <input type="text" name="email" placeholder="Masukin Email">
+                <input type="text" name="email" placeholder="Masuka n Email">
             </div>
             <div>
                 <button>Submit</button>
