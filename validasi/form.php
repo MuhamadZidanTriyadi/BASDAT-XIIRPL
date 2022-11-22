@@ -5,20 +5,20 @@
     <body>
         <form action="proses.php">
             <div>
-                <label>Nama</label><br>
+                <label>Nama(Harus Input Nama)</label><br>
                 <input type="text" name="nama">
             </div>
             <div style="margin-top: 10px;">
-                <label>Email</label><br>
-                <input type="email" name="email">
+                <label>Email(Harus Input @)</label><br>
+                <input type="text" name="email">
             </div>
             <div style="margin-top: 10px;">
-                <label>Username</label><br>
+                <label>Username(Tidak Boleh Regex)</label><br>
                 <input type="text" name="username">
             </div>
             <div style="margin-top: 10px;">
-                <label>Usia</label><br>
-                <input type="number" name="usia">
+                <label>Usia(Harus Angka)</label><br>
+                <input type="text" name="usia">
             </div>
             <div style="margin-top:10px;"></div>
             <button>Submit</button>
