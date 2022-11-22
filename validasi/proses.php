@@ -4,7 +4,6 @@ require 'helper/fungsi-validasi.php';
 
 // tambahkan rules masing masing jenis formnya
 
-
 $rules = [
     'nama' => ['required'],
     'email' => ['required','email'],
@@ -12,10 +11,27 @@ $rules = [
     'usia' => ['required','numeric'],
 ];
 
-$erorrs = validasi($rules);
+$errors = validasi($rules);
 
-echo "<pre>";
-print_r($erorrs);
-echo "</pre>";
+// echo "<pre>";
+// print_r($erorrs);
+// echo "</pre>";
+
+// Disini kita bisa melakukan proses yang harus dilakukan
+// jika tidak terjadi error validasi apapun
+
+if (count($errors) > 0){
+    $time = $_REQUEST;
+    $queryString = http_build_query([
+        'errors' => $errors,
+        'time' => $time
+    ]);
+
+    header("location: form.php?{$queryString}");
+    die();
+}
+
+
+
 
 ?>
