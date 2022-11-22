@@ -12,6 +12,10 @@ $rules = [
     'usia' => ['required','numeric'],
 ];
 
-validasi($rules);
+$erorrs = validasi($rules);
+
+echo "<pre>";
+print_r($erorrs);
+echo "</pre>";
 
 ?>

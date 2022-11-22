@@ -1,35 +1,42 @@
 <?php
 
+require_once 'fungsi-pesan-error.php';
+
 function validasi (array $listinput){
     // variabel berisi inputan form
     $request = $_REQUEST;
 
+        // memanggil semua variabel error
+        $errors = [];
+
+        // Mengakses variabel $listPesanError
+        global $listPesanError;
     // perulangan untuk array terluar (berisi nama input)
     foreach ($listinput as $input => $listrules){
         echo "Periksa Input <strong>{$input}</strong><br>";
         
-        // Perulangan untuk sub array (berisi nama rules)
-        foreach ($listrules as $rules){
-            echo "Rules <strong>{$rules}</strong><br>";
-            // Pemeriksaan tiap rules
-            if ($rules === 'required') {
-                $lolos = lolosRequired($request[$input]);
-                // Penerapan Nilai Bool True : False
-                echo $lolos ? "Lolos" : "Tidak Lolos";
-            }elseif($rules === 'email'){
-                $lolos = lolosEmail($request[$input]);
-                echo $lolos ? "Lolos" : "Tidak Lolos";
-            }elseif($rules === 'username'){
-                $lolos = lolosUsername($request[$input]);
-                echo $lolos ? "Lolos" : "Tidak Lolos";
-            }elseif($rules === 'numeric'){
-                $lolos = lolosnumeric($request[$input]);
-                echo $lolos ? "Lolos" : "Tidak Lolos";
+        // Menggunakan Foreach untuk memanggil semua fungsi yang bernama 'Lolos'
+        foreach($listrules as $rules){
+            echo "->rules<strong>{$input}</strong>:";
+            // Panggil fungsi yang ada nama Lolosnye
+            $namaFungsi = 'lolos'.ucfirst($rules);
+            // validasi sesuai input formnye
+            $lolos = $namaFungsi($request[$input]);
+            // Buatkeun bool (lolos atau Tidak Lolos)
+
+            // Jika tidak lolos maka munculkan pesan error
+            if (!$lolos){
+                if (!is_array($errors[$input])){
+                    $errors += [$input => []];
+                }
+                array_push($errors[$input],$listPesanError[$rules]($input));
             }
             echo "<br>";
         }
+
         echo "<br>";
     }
+    return $errors;
 }
 
 function lolosRequired($nilai){
