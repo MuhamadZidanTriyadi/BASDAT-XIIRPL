@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Formulir Pendaftaran</title>
+    <style>
+        div {padding: 4px};
+    </style>
+</head>
+<body>
+        <form action="proses.php" method="POST" enctype="multipart/form-data">
+            <div style="margin-top: 10px;">
+                <h1>Formulir Pendaftaran</h1>
+                <label>Nama :</label> <br>
+                <input name="nama" type="text">
+            </div>
+            <div style="margin-top: 10px;">
+                <label>Jurusan :</label> <br>                
+                <input name="jurusan" value="RPL" type="radio">RPL<br>
+                <input name="jurusan" value="AKL" type="radio">AKL<br>
+                <input name="jurusan" value="BDP" type="radio">BDP<br>
+                <input name="jurusan" value="OTKP" type="radio">OTKP<br>
+            </div>
+            <div style="margin-top: 10px;">
+                <label>Nama Ayah :</label> <br>
+                <input name="nama_ayah" type="text">
+            </div>
+            <div style="margin-top: 10px;">
+                <label>Nama Ibu :</label> <br>
+                <input name="nama_ibu" type="text">
+            </div>
+            <div style="margin-top: 10px;">
+                <label>Alamat :</label> <br>
+                <input name="alamat" type="text">
+            </div>
+            <div style="margin-top:10px;"> 
+                <label>Foto</label><br>
+                <input type="file" name="foto">
+            </div>
+            <div>
+                <input type="submit" value="Simpan">
+            </div>
+        </form>
+</body>
+</html>
