@@ -1,43 +1,44 @@
 <html>
 <head>
     <title>Formulir Pendaftaran</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         div {padding: 4px};
     </style>
 </head>
 <body>
         <form action="proses.php" method="POST" enctype="multipart/form-data">
-            <div style="margin-top: 10px;">
+            <div class="container" >
                 <h1>Formulir Pendaftaran</h1>
-                <label>Nama :</label> <br>
+                <label>Nama :</label>
                 <input name="nama" type="text">
-            </div>
-            <div style="margin-top: 10px;">
+            <div>
                 <label>Jurusan :</label> <br>                
                 <input name="jurusan" value="RPL" type="radio">RPL<br>
                 <input name="jurusan" value="AKL" type="radio">AKL<br>
                 <input name="jurusan" value="BDP" type="radio">BDP<br>
                 <input name="jurusan" value="OTKP" type="radio">OTKP<br>
             </div>
-            <div style="margin-top: 10px;">
+            <div>
                 <label>Nama Ayah :</label> <br>
                 <input name="nama_ayah" type="text">
             </div>
-            <div style="margin-top: 10px;">
+            <div>
                 <label>Nama Ibu :</label> <br>
                 <input name="nama_ibu" type="text">
             </div>
-            <div style="margin-top: 10px;">
+            <div>
                 <label>Alamat :</label> <br>
                 <input name="alamat" type="text">
             </div>
-            <div style="margin-top:10px;"> 
+            <div> 
                 <label>Foto</label><br>
                 <input type="file" name="foto">
             </div>
             <div>
-                <input type="submit" value="Simpan">
+                <input type="submit" value="Simpan" >
             </div>
+        </div>
         </form>
 </body>
 </html>
