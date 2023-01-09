@@ -1,0 +1,63 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../gambar/Back.jpg);
+    margin-left: 100px;
+}
+
+.form {
+    font-family: sans-serif;
+    background: #d5f0f3;
+    background-image: url(../gambar/border.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 450px;
+    border: 1px solid black;
+    text-align: center;
+    margin-left: 450px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.form div {
+    color: white;
+    width: 90%;
+    height: 35px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.form div input {
+    width: 70%;
+    height: 100%;
+}
+
+.form h1{
+    color: white;
+    margin-left: 60px;
+}
+
+
+
+.tombol_login {
+    font-family: sans-serif;
+    margin-left: 80px;
+	background: #04fb0c;
+	color: white;
+	font-size: 12pt;
+	width: 63%;
+	border: none;
+	border-radius: 10px;
+	padding: 10px 20px;
+    text-decoration: none;
+}
+
