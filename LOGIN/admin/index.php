@@ -37,6 +37,7 @@
             <th>Pengarang</th>
             <th>Tahun Terbit</th>
             <th>Penerbit</th>
+            <th>Harga</th>
             <th>Aksi</th>
         </tr>
         <br>
@@ -50,23 +51,34 @@
             echo "<td>".$pengarang = $row['pengarang']."</td>";
             echo "<td>".$thn_terbit = $row['thn_terbit']."</td>";
             echo "<td>".$penerbit = $row['penerbit']."</td>";
+            echo "<td>". "Rp. " . number_format($row['harga']). " ,-" . "</td>";
             ?>
+        
     <td>
         <a href="update.php?id_buku=<?php echo $row['id_buku']?>" class="btn btn-outline-success">EDIT</a>
         <a href="proses-hapus.php?id_buku=<?php echo $row['id_buku']?>"  class="btn btn-outline-danger">HAPUS</a>    
     </td>
-
+        
     <?php
             echo "</tr>";
         }
         ?>
         </center>
-        </table>
-        <hr>
+    </table>
+    <h3>TOTAL HARGA : 
+    <?php
+    $db = mysqli_query($koneksi, "SELECT * FROM buku;");
+    while($r = mysqli_fetch_array($db)){
+        $h[] = $r['harga'];
+    }
+    $totalHarga = array_sum($h);
+    echo "Rp. " . number_format($totalHarga) . " ,-";
+    ?>
+    </h3>
+    <hr>
         <center>
         <h1>Data Anggota</h1>
         <h3>TOTAL ANGGOTA TERSEDIA : <?php echo $jumlah_anggota; ?></h3>
-        <a  href="add.php" class="btn btn-success" style="margin-bottom: 10px;">Tambah Buku</a>
         <a  href="add_anggota.php" class="btn btn-success" style="margin-bottom: 10px;">Tambah Anggota</a>
         <a  href="../logout.php" class="btn btn-primary" style="margin-bottom: 10px;">LOGOUT</a>
         <table class="table table-bordered" id="myTable">
@@ -90,8 +102,17 @@
             echo "<td>".$alamat= $rou['alamat']."</td>";
             echo "<td>".$email = $rou['email']."</td>";
             echo "<td>".$password = $rou['password']."</td>";
+        
             ?>
-
+        <!-- <h3>TOTAL HARGA : 
+    <?php
+    $db = mysqli_query($koneksi, "SELECT * FROM buku;");
+    while($r = mysqli_fetch_array($db)){
+        $h[] = $r['harga'];
+    }
+    $totalHarga = array_sum($h);
+    echo "Rp. " . number_format($totalHarga) . " ,-";
+    ?> -->
     <?php
             echo "</tr>";
         }
