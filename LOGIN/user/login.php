@@ -24,13 +24,13 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td>
+                    <td><Input type="submit" class="tombol_login" value="login"></td>
                 </tr>
                 <tr>
                     <td>Halaman Utama <a class="link" href="../index.php">Disini</a></td>
                 </tr>
-                <img alt="model" class= "model" src="../gambar/skate.png ">
                 </table>
+                <h4>Anda Belum Punya Akun ? Daftar <a href="daftar.php">Disini</a></h4>
             </div>
         </form>
     </body>

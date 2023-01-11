@@ -6,20 +6,30 @@
     </head>
     <body>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-        <h1>Menampilkan Data Buku</h1>
-        
         <?php
         session_start();
         if($_SESSION['status']!='login'){
             header('location:login_admin.php?pesan=belum_login');
         }
+        
+        include '../koneksi_db.php';
+        // Ambil data semua dari table buku
+        $buku = mysqli_query($koneksi, "SELECT * FROM buku");
+        $anggota = mysqli_query($koneksi, "SELECT * FROM anggota");
+        
+        // Jumlahkan Data yang Ada di table
+        $jumlah_buku = mysqli_num_rows($buku);
+        $jumlah_anggota = mysqli_num_rows($anggota);
+        
         ?>
+        <h1>Menampilkan Data Buku</h1>
+        <h3>TOTAL ANGGOTA TERSEDIA : <?php echo $jumlah_buku; ?></h3>
+        
         <center>
         <div class="card-body">
-        <h4>Selamat Datang <?php echo $_SESSION['admin']?> Telah Login</h4>
+        <h4>Selamat Datang <?php include '../koneksi_db.php';echo $_SESSION['admin']?> Telah Login</h4>
+        <hr>
         <a  href="add.php" class="btn btn-success" style="margin-bottom: 10px;">Tambah Buku</a>
-        <a  href="add_anggota.php" class="btn btn-success" style="margin-bottom: 10px;">Tambah Anggota</a>
-        <a  href="../logout.php" class="btn btn-primary" style="margin-bottom: 10px;">LOGOUT</a>
         <table class="table table-bordered" id="myTable">
         <tr>
             <th>Katalog</th>
@@ -28,7 +38,6 @@
             <th>Tahun Terbit</th>
             <th>Penerbit</th>
             <th>Aksi</th>
-
         </tr>
         <br>
         <?php
@@ -46,6 +55,42 @@
         <a href="update.php?id_buku=<?php echo $row['id_buku']?>" class="btn btn-outline-success">EDIT</a>
         <a href="proses-hapus.php?id_buku=<?php echo $row['id_buku']?>"  class="btn btn-outline-danger">HAPUS</a>    
     </td>
+
+    <?php
+            echo "</tr>";
+        }
+        ?>
+        </center>
+        </table>
+        <hr>
+        <center>
+        <h1>Data Anggota</h1>
+        <h3>TOTAL ANGGOTA TERSEDIA : <?php echo $jumlah_anggota; ?></h3>
+        <a  href="add.php" class="btn btn-success" style="margin-bottom: 10px;">Tambah Buku</a>
+        <a  href="add_anggota.php" class="btn btn-success" style="margin-bottom: 10px;">Tambah Anggota</a>
+        <a  href="../logout.php" class="btn btn-primary" style="margin-bottom: 10px;">LOGOUT</a>
+        <table class="table table-bordered" id="myTable">
+        <tr>
+            <th>ID Anggota</th>
+            <th>Nama</th>
+            <th>No Telepon</th>
+            <th>Alamat</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+        <br>
+        <?php
+        include '../koneksi_db.php';
+        $anggota = mysqli_query($koneksi, "SELECT * FROM anggota");
+        foreach ($anggota as $rou){
+            echo "<tr>";
+            echo "<td>".$id_anggota = $rou['id_anggota']."</td>";
+            echo "<td>".$nama = $rou['nama']."</td>";
+            echo "<td>".$no_telp = $rou['no_telp']."</td>";
+            echo "<td>".$alamat= $rou['alamat']."</td>";
+            echo "<td>".$email = $rou['email']."</td>";
+            echo "<td>".$password = $rou['password']."</td>";
+            ?>
 
     <?php
             echo "</tr>";
