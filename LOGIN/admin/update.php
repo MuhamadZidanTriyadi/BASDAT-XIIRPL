@@ -43,6 +43,10 @@
                 <label>Penerbit</label>
                 <input type="text" name="penerbit" value="<?php echo $meledak['penerbit'];?>">
                 </div>
+                <div class="harga">
+                <label>Harga</label>
+                <input type="text" name="harga" value="<?php echo $meledak['harga'];?>">
+                </div>
                 <br>
                 <button class="tombol_login" type="submit"><a href="index.php"></a>Submit</button>
                 </div>

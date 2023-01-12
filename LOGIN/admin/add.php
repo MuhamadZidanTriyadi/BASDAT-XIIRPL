@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Tambah Buku</title>
-        <link rel="stylesheet" href="style1.css">
+        <link rel="stylesheet" href="style2.css">
     </head>
     <body>
         <div class="form">
@@ -26,6 +26,10 @@
                 <div class="penerbit">
                 <label>Penerbit</label>
                 <input type="text" name="penerbit">
+                </div>
+                <div class="harga">
+                <label>Harga</label>
+                <input type="text" name="harga">
                 </div>
                 <br>
                 <button class="tombol_login" type="submit"><a href="index.php"></a>Submit</button>

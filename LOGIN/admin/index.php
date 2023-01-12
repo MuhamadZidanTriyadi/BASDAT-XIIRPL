@@ -27,9 +27,11 @@
         
         <center>
         <div class="card-body">
-        <h4>Selamat Datang <?php include '../koneksi_db.php';echo $_SESSION['admin']?> Telah Login</h4>
+            <h4>Selamat Datang <?php include '../koneksi_db.php';echo $_SESSION['admin']?> Telah Login</h4>
+            <a href="sandbox.php" class="btn btn-success" style="margin-bottom: 10px;">SandBox</a>
         <hr>
-        <a  href="add.php" class="btn btn-success" style="margin-bottom: 10px;">Tambah Buku</a>
+        <a href="add.php" class="btn btn-success" style="margin-bottom: 10px;">Tambah Buku</a>
+        <a href="cetak_buku.php" class="btn btn-success" style="margin-bottom: 10px;">Cetak</a>
         <table class="table table-bordered" id="myTable">
         <tr>
             <th>Katalog</th>
@@ -80,6 +82,7 @@
         <h1>Data Anggota</h1>
         <h3>TOTAL ANGGOTA TERSEDIA : <?php echo $jumlah_anggota; ?></h3>
         <a  href="add_anggota.php" class="btn btn-success" style="margin-bottom: 10px;">Tambah Anggota</a>
+        <a href="cetak_anggota.php" class="btn btn-success" style="margin-bottom: 10px;">Cetak</a>
         <a  href="../logout.php" class="btn btn-primary" style="margin-bottom: 10px;">LOGOUT</a>
         <table class="table table-bordered" id="myTable">
         <tr>
